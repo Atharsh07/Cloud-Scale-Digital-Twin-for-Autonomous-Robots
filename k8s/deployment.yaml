@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digital-twin-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: digital-twin
+  template:
+    metadata:
+      labels:
+        app: digital-twin
+    spec:
+      containers:
+      - name: digital-twin
+        image: your_dockerhub_username/digital-twin:latest
+        imagePullPolicy: Always
+        stdin: true
+        tty: true
+        command: ["/bin/bash", "-c", "source /ros2_ws/install/setup.bash && ros2 launch launch/digital_twin.launch.py"]

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="multi_robot_world">
+
+    <!-- Ground Plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Sun / Lighting -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Robots -->
+    <include>
+      <uri>model://robot1</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://robot2</uri>
+      <pose>2 2 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://robot3</uri>
+      <pose>-2 2 0 0 0 0</pose>
+    </include>
+
+    <!-- Obstacles -->
+    <model name="box1">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>1 1 1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>1 1 1</size></box>
+          </geometry>
+        </visual>
+      </link>
+      <pose>1 0 0.5 0 0 0</pose>
+    </model>
+
+  </world>
+</sdf>

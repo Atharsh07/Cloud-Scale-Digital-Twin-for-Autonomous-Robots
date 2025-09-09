@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  digital_twin:
+    build: .
+    container_name: digital_twin
+    network_mode: host
+    volumes:
+      - ./gazebo_worlds:/ros2_ws/gazebo_worlds
+      - ./ros2_packages:/ros2_ws/src
+    stdin_open: true
+    tty: true
